@@ -13,7 +13,7 @@ We follow the **Conventional Commits** specification (`type(scope): description`
 
 Rules:
 1. One logical unit per commit.
-2. Never `git add .` — stage exact files.
+2. Never `git add .`  -  stage exact files.
 3. Every public method must have corresponding unit tests.
 4. Run `cargo test` and `cargo clippy -- -D warnings` before opening PRs.
 
