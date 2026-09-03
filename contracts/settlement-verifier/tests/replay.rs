@@ -5,7 +5,10 @@ use soroban_sdk::testutils::Address as _;
 use soroban_sdk::token::{Client as TokenClient, StellarAssetClient};
 use soroban_sdk::{Address, Env};
 
-fn setup_token<'a>(env: &Env, admin: &Address) -> (Address, StellarAssetClient<'a>, TokenClient<'a>) {
+fn setup_token<'a>(
+    env: &Env,
+    admin: &Address,
+) -> (Address, StellarAssetClient<'a>, TokenClient<'a>) {
     let token_contract = env.register_stellar_asset_contract_v2(admin.clone());
     let token_client = TokenClient::new(env, &token_contract.address());
     let stellar_client = StellarAssetClient::new(env, &token_contract.address());

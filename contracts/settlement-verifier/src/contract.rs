@@ -185,11 +185,7 @@ impl SettlementVerifier {
     }
 
     /// Admin view: updates protocol fee parameters.
-    pub fn set_fee_config(
-        env: Env,
-        new_fee_bps: u32,
-        new_recipient: Address,
-    ) -> Result<(), Error> {
+    pub fn set_fee_config(env: Env, new_fee_bps: u32, new_recipient: Address) -> Result<(), Error> {
         let current_admin = get_admin(&env)?;
         current_admin.require_auth();
 
