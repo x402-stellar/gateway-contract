@@ -8,6 +8,36 @@ x402-gateway-contract handles on-chain settlement and fee distribution for HTTP 
 
 Documentation and API reference: [https://x402-stellar.mintlify.app](https://x402-stellar.mintlify.app)
 
+---
+
+## Testnet Deployment
+
+The `settlement-verifier` contract is deployed and active on Stellar Testnet:
+
+| Parameter | Value |
+|---|---|
+| **Contract ID** | [`CATZACNU6KVGZXYF7J4O4NLINRKL5FWC2YAQPHTIQMSQPDAJSSOMRUNL`](https://stellar.expert/explorer/testnet/contract/CATZACNU6KVGZXYF7J4O4NLINRKL5FWC2YAQPHTIQMSQPDAJSSOMRUNL) |
+| **WASM Hash** | `1bd873a82c8359842cea41c2fb2ee00ca9e779938708458d090cec50e7818218` |
+| **Admin Address** | `GCQURZFYPPAN76FRARROTSTYVH2LQ5AP7OLDXMJPIQ7STDOM55FXWD4T` |
+| **Protocol Fee** | 25 BPS (0.25%) |
+| **Network** | Stellar Testnet |
+
+---
+
+## Resource & Gas Benchmarks
+
+Operations run well below the Soroban network limit of 100,000,000 CPU instructions per transaction:
+
+| Operation | CPU Instructions | Memory Bytes | % of CPU Limit | Est. Fee |
+|---|---|---|---|---|
+| `get_nonce` | 24,952 | 10,181 | 0.025% | < 0.00001 XLM |
+| `settle_payment` | 514,163 | 156,208 | 0.514% | ~ 0.00001 XLM |
+| `verify_and_split` | 519,514 | 156,103 | 0.520% | ~ 0.00001 XLM |
+
+For full benchmarking methodology and reproduction commands, see [benchmarks.md](benchmarks.md).
+
+---
+
 ## Architecture
 
 ```
@@ -21,6 +51,8 @@ Client / Agent ---> (Payment Authorization) ---> gateway-contract
   - Enforces valid token & positive amount                               - Collects protocol fee in basis points
   - Emits on-chain SettlementReceipt event                               - Supports multi-recipient splits
 ```
+
+---
 
 ## Quickstart
 
@@ -36,8 +68,15 @@ bash scripts/build.sh
 
 ### Test
 ```bash
-cargo test
+cargo test --all-targets
 ```
+
+### Benchmarks
+```bash
+cargo test --test benchmarks -- --nocapture
+```
+
+---
 
 ## Contributing
 See [CONTRIBUTING.md](CONTRIBUTING.md) for commit standards and development guidelines.
