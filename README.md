@@ -1,10 +1,12 @@
 # gateway-contract
 
 [![CI](https://github.com/x402-stellar/gateway-contract/actions/workflows/ci.yml/badge.svg)](https://github.com/x402-stellar/gateway-contract/actions/workflows/ci.yml)
-[![Docs](https://img.shields.io/badge/docs-mintlify-blue.svg)](https://github.com/x402-stellar/docs)
+[![Docs](https://img.shields.io/badge/docs-x402--stellar.mintlify.app-blue.svg)](https://x402-stellar.mintlify.app)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 
 x402-gateway-contract handles on-chain settlement and fee distribution for HTTP 402 payments on Stellar. When a client or AI agent pays for an API call using a Stellar Asset Contract (SAC), this contract checks the signed authorization entry, splits payments between merchants and fee recipients in a single transaction, tracks monotonic nonces to prevent replay attacks, and emits structured receipt events to the ledger. It gives API gateways an on-chain verification point without requiring custom contract code for every merchant.
+
+Documentation and API reference: [https://x402-stellar.mintlify.app](https://x402-stellar.mintlify.app)
 
 ## Architecture
 
