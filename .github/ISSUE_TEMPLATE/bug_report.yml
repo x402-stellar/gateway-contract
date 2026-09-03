@@ -1,0 +1,58 @@
+name: Bug Report
+description: Report an unexpected error, revert, or defect in the smart contract
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please ensure your report is clear and reproducible.
+  - type: input
+    id: environment
+    attributes:
+      label: Network & Environment
+      description: What network did this occur on?
+      placeholder: e.g. Stellar Testnet, Futurenet, Local Standalone, or Rust unit test
+    validations:
+      required: true
+  - type: input
+    id: contract_version
+    attributes:
+      label: Contract ID / Commit Hash
+      description: The contract ID or commit SHA where this issue was observed.
+      placeholder: e.g. CATZACNU6KVGZXYF7J4O4NLINRKL5FWC2YAQPHTIQMSQPDAJSSOMRUNL
+    validations:
+      required: true
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: Actual Behavior
+      description: What actually happened? (Include exact host error codes, simulation failures, or revert messages)
+    validations:
+      required: true
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Provide reproduction steps or minimal test code.
+      placeholder: |
+        1. Deploy contract with fee 25 bps
+        2. Call settle_payment with params...
+        3. Observe error...
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Verification Checklist
+      options:
+        - label: I verified that this bug is reproducible on the latest main commit.
+          required: true
+        - label: I searched existing issues to ensure this is not a duplicate.
+          required: true

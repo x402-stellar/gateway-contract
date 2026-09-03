@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Stellar x402 Documentation
+    url: https://x402-stellar.mintlify.app
+    about: Read the official documentation, integration guides, and smart contract reference.
+  - name: Stellar Community Discord
+    url: https://discord.gg/stellardev
+    about: Join the Stellar developer community for real-time discussion and help.

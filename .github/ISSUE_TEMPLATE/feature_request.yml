@@ -1,0 +1,32 @@
+name: Feature Request
+description: Propose a new feature, optimization, or contract capability
+labels: ["enhancement", "proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please provide details on the feature proposal and the specific problem it solves.
+  - type: textarea
+    id: problem_statement
+    attributes:
+      label: Problem Statement
+      description: What problem or limitation does this proposal solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the design, interface additions, or state changes you suggest.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives_considered
+    attributes:
+      label: Alternatives Considered
+      description: Any alternative designs or workarounds considered?
+  - type: textarea
+    id: impact_on_gas
+    attributes:
+      label: Gas & Resource Impact
+      description: How does this feature impact transaction CPU instructions and memory consumption?
